@@ -10,6 +10,8 @@ const PROJECT_ROOT = process.env.PROJECTS_ROOT
   ? path.resolve(process.env.PROJECTS_ROOT)
   : path.join(/*turbopackIgnore: true*/ process.cwd(), "..");
 
+const SHOULD_USE_DEMO_DATA = Boolean(process.env.VERCEL) && !process.env.PROJECTS_ROOT;
+
 const PORTFOLIO_PROJECTS_URL =
   process.env.PORTFOLIO_PROJECTS_URL ?? "https://www.arnavgokhale.com/projects";
 
@@ -103,6 +105,8 @@ export type ScreenshotSignal = {
 };
 
 export async function getProjectSignals(): Promise<ProjectSignal[]> {
+  if (SHOULD_USE_DEMO_DATA) return DEMO_PROJECTS;
+
   const entries = await readdir(PROJECT_ROOT, { withFileTypes: true });
   const candidates = entries
     .filter((entry) => entry.isDirectory() && !entry.name.startsWith("."))
@@ -121,6 +125,119 @@ export async function getProjectSignals(): Promise<ProjectSignal[]> {
       return bTime - aTime;
     });
 }
+
+const DEMO_PROJECTS: ProjectSignal[] = [
+  {
+    name: "portfolio-intelligence-layer",
+    path: "/demo/portfolio-intelligence-layer",
+    relativePath: "portfolio-intelligence-layer",
+    description:
+      "Self-updating operations dashboard that tracks project metadata, Git activity, deployment state, screenshots, stack signals, and case-study readiness.",
+    latestCommits: [
+      {
+        hash: "f7ed344",
+        subject: "Add project links",
+        author: "Arnav Gokhale",
+        date: "2026-05-10T22:56:31.000Z",
+      },
+      {
+        hash: "0ac7826",
+        subject: "Build portfolio intelligence dashboard",
+        author: "Arnav Gokhale",
+        date: "2026-05-10T22:52:00.000Z",
+      },
+    ],
+    activeBranches: [{ name: "main", isCurrent: true }],
+    unfinishedFeatures: [
+      "Add authenticated Vercel deployment status lookup",
+      "Add screenshot refresh jobs for projects with public demos",
+      "Export project proof points back into the public portfolio",
+    ],
+    deployment: {
+      status: "live",
+      url: "https://portfolio-intelligence-layer.vercel.app",
+      provider: "vercel",
+      note: "Live product page deployed on Vercel with public demo data.",
+    },
+    screenshots: [],
+    stack: ["Next.js", "TypeScript", "Git", "Vercel", "Tailwind CSS", "Lucide"],
+    caseStudyStatus: "ready",
+    proves: [
+      "Can build backend scanners around real developer workflows.",
+      "Can turn project metadata into portfolio operations intelligence.",
+      "Can ship internal tooling as a usable product surface.",
+      "Can connect GitHub, Vercel, screenshots, and case-study readiness.",
+    ],
+    health: "active",
+    updatedAt: "2026-05-10T22:56:31.000Z",
+  },
+  {
+    name: "cortex",
+    path: "/demo/cortex",
+    relativePath: "cortex",
+    description:
+      "Multi-agent AI workspace with streaming responses, specialized agents, and a visual task network.",
+    latestCommits: [
+      {
+        hash: "public",
+        subject: "Public portfolio signal",
+        author: "Arnav Gokhale",
+        date: "2025-04-11T00:00:00.000Z",
+      },
+    ],
+    activeBranches: [{ name: "main", isCurrent: true }],
+    unfinishedFeatures: ["Refresh authenticated product screenshot for portfolio card"],
+    deployment: {
+      status: "live",
+      url: "https://cortex-arnavgokhale12s-projects.vercel.app",
+      provider: "vercel",
+      note: "Live URL found on the public portfolio.",
+    },
+    screenshots: [],
+    stack: ["Next.js", "Vercel AI SDK", "TypeScript", "Framer Motion", "Zustand"],
+    caseStudyStatus: "ready",
+    proves: [
+      "Can build AI-native interfaces beyond chat.",
+      "Can coordinate multi-agent product workflows.",
+      "Can ship polished full-stack AI prototypes.",
+    ],
+    health: "active",
+    updatedAt: "2025-04-11T00:00:00.000Z",
+  },
+  {
+    name: "lexistack",
+    path: "/demo/lexistack",
+    relativePath: "lexistack",
+    description:
+      "Vocabulary learning app with spaced repetition, mobile-first flows, and daily review mechanics.",
+    latestCommits: [
+      {
+        hash: "public",
+        subject: "Public portfolio signal",
+        author: "Arnav Gokhale",
+        date: "2024-03-15T00:00:00.000Z",
+      },
+    ],
+    activeBranches: [{ name: "main", isCurrent: true }],
+    unfinishedFeatures: ["Add fresh mobile screenshots to public project card"],
+    deployment: {
+      status: "live",
+      url: "https://lexistack.vercel.app",
+      provider: "vercel",
+      note: "Live URL found on the public portfolio.",
+    },
+    screenshots: [],
+    stack: ["React Native", "Expo", "TypeScript", "Spaced Repetition"],
+    caseStudyStatus: "ready",
+    proves: [
+      "Can design and ship learning-product UX.",
+      "Can connect mobile app mechanics to retention loops.",
+      "Can document product value through case studies.",
+    ],
+    health: "active",
+    updatedAt: "2024-03-15T00:00:00.000Z",
+  },
+];
 
 export function getProjectsRoot() {
   return PROJECT_ROOT;
