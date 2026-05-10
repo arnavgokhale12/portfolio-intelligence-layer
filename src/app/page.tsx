@@ -63,6 +63,22 @@ export default async function Home() {
                 screenshots, stack detection, case-study readiness, and proof
                 points are collected by the backend on every request.
               </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <a
+                  href="https://www.arnavgokhale.com/projects/portfolio-intelligence-layer"
+                  className="inline-flex items-center gap-2 border border-emerald-300/30 bg-emerald-300/10 px-3 py-2 text-sm font-medium text-emerald-100 transition hover:border-emerald-200 hover:bg-emerald-300/15"
+                >
+                  Read case study
+                  <ExternalLink className="size-4" />
+                </a>
+                <a
+                  href="https://github.com/arnavgokhale12/portfolio-intelligence-layer"
+                  className="inline-flex items-center gap-2 border border-white/10 bg-white/5 px-3 py-2 text-sm font-medium text-zinc-200 transition hover:border-zinc-300 hover:text-white"
+                >
+                  GitHub repo
+                  <ExternalLink className="size-4" />
+                </a>
+              </div>
             </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:w-[520px]">
               <Metric label="Projects" value={projects.length.toString()} icon={Layers3} />
