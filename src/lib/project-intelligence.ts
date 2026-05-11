@@ -77,6 +77,8 @@ export type ProjectSignal = {
   proves: string[];
   health: "active" | "needs-case-study" | "quiet" | "needs-git";
   updatedAt: string | null;
+  category: "Web" | "AI" | "Mobile" | "Data" | "Automation" | "Tools";
+  githubUrl: string | null;
 };
 
 export type CommitSignal = {
@@ -170,6 +172,8 @@ const DEMO_PROJECTS: ProjectSignal[] = [
     ],
     health: "active",
     updatedAt: "2026-05-10T22:56:31.000Z",
+    category: "Web",
+    githubUrl: "https://github.com/arnavgokhale12/portfolio-intelligence-layer",
   },
   {
     name: "cortex",
@@ -203,6 +207,8 @@ const DEMO_PROJECTS: ProjectSignal[] = [
     ],
     health: "active",
     updatedAt: "2025-04-11T00:00:00.000Z",
+    category: "AI",
+    githubUrl: "https://github.com/arnavgokhale12/cortex",
   },
   {
     name: "lexistack",
@@ -236,6 +242,300 @@ const DEMO_PROJECTS: ProjectSignal[] = [
     ],
     health: "active",
     updatedAt: "2024-03-15T00:00:00.000Z",
+    category: "Mobile",
+    githubUrl: "https://github.com/arnavgokhale12/vocab-phone",
+  },
+  {
+    name: "automation-frontier",
+    path: "/demo/automation-frontier",
+    relativePath: "automation-frontier",
+    description:
+      "Job automation risk dashboard tracking how AI and robotics exposure affects roles across industries, with a composite stress index and market overlays.",
+    latestCommits: [
+      { hash: "d93c556", subject: "Improve automation dashboard UX", author: "arnavgokhale", date: "2026-05-10T23:08:05-05:00" },
+      { hash: "84b45a8", subject: "fix: correct automationRisk values in seed data and harden API route", author: "arnavgokhale", date: "2026-05-10T18:04:59-05:00" },
+      { hash: "c2a2fd2", subject: "chore: production build verified and deployed", author: "arnavgokhale", date: "2026-05-10T18:00:58-05:00" },
+    ],
+    activeBranches: [
+      { name: "feature/human-bottleneck-index", isCurrent: true },
+      { name: "main", isCurrent: false },
+    ],
+    unfinishedFeatures: ["Human Bottleneck Index feature in progress on active branch"],
+    deployment: {
+      status: "configured",
+      url: null,
+      provider: "vercel",
+      note: "Linked to Vercel. Production build verified and deployed.",
+    },
+    screenshots: [],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    caseStudyStatus: "missing",
+    proves: [
+      "Can build labor economics dashboards with real automation risk data.",
+      "Can ship Next.js apps with server-rendered composite indexes.",
+      "Can maintain active feature branches alongside production.",
+      "Shows ownership of automation-frontier from code to narrative.",
+    ],
+    health: "needs-case-study",
+    updatedAt: "2026-05-10T23:08:05-05:00",
+    category: "Web",
+    githubUrl: "https://github.com/arnavgokhale12/automation-frontier",
+  },
+  {
+    name: "bluesky-autoposter",
+    path: "/demo/bluesky-autoposter",
+    relativePath: "bluesky-autoposter",
+    description:
+      "Daily Bluesky poster driven by GitHub Actions — posts from a queue and auto-announces portfolio projects via the AT Protocol SDK, with per-project dedup tracking.",
+    latestCommits: [
+      { hash: "5d8fdc8", subject: "Update social posting state", author: "GitHub Action", date: "2026-05-11T04:03:02Z" },
+      { hash: "a55fc54", subject: "Add portfolio project autoposting", author: "arnavgokhale", date: "2026-05-10T23:02:30-05:00" },
+      { hash: "5ded5b2", subject: "Mark post as completed", author: "GitHub Action", date: "2026-05-08T14:35:09Z" },
+    ],
+    activeBranches: [{ name: "main", isCurrent: true }],
+    unfinishedFeatures: [],
+    deployment: {
+      status: "unknown",
+      url: null,
+      provider: "unknown",
+      note: "Runs as a GitHub Actions workflow — no web deployment.",
+    },
+    screenshots: [],
+    stack: ["Python", "GitHub Actions", "AT Protocol"],
+    caseStudyStatus: "missing",
+    proves: [
+      "Can build social media automation with the AT Protocol SDK.",
+      "Can orchestrate multi-source post queues via GitHub Actions.",
+      "Can integrate portfolio project discovery into a publishing pipeline.",
+      "Shows ownership of bluesky-autoposter from code to narrative.",
+    ],
+    health: "needs-case-study",
+    updatedAt: "2026-05-11T04:03:02Z",
+    category: "Automation",
+    githubUrl: "https://github.com/arnavgokhale12/bluesky-autoposter",
+  },
+  {
+    name: "ghrm",
+    path: "/demo/ghrm",
+    relativePath: "ghrm",
+    description:
+      "GitHub contribution calendar keeper — commits a heartbeat timestamp once or twice daily via GitHub Actions with randomized timing and commit message variation.",
+    latestCommits: [
+      { hash: "2f577b5", subject: "Ignore Vercel project files", author: "arnavgokhale", date: "2026-05-10T23:08:41-05:00" },
+      { hash: "9ba9e38", subject: "Update activity", author: "arnavgokhale12", date: "2026-05-10T18:38:44Z" },
+      { hash: "42a7089", subject: "Regular check-in", author: "arnavgokhale12", date: "2026-05-10T09:43:46Z" },
+    ],
+    activeBranches: [{ name: "main", isCurrent: true }],
+    unfinishedFeatures: [],
+    deployment: {
+      status: "unknown",
+      url: null,
+      provider: "unknown",
+      note: "Runs as a scheduled GitHub Actions workflow — no web interface.",
+    },
+    screenshots: [],
+    stack: ["Python", "GitHub Actions"],
+    caseStudyStatus: "missing",
+    proves: [
+      "Can build reliable GitHub Actions automation with Python.",
+      "Can design randomized scheduling for natural-looking bot behavior.",
+      "Shows ownership of ghrm from code to narrative.",
+    ],
+    health: "needs-case-study",
+    updatedAt: "2026-05-10T23:08:41-05:00",
+    category: "Automation",
+    githubUrl: "https://github.com/arnavgokhale12/ghrm",
+  },
+  {
+    name: "groupme-mcp",
+    path: "/demo/groupme-mcp",
+    relativePath: "groupme-mcp",
+    description:
+      "MCP server wrapping the GroupMe v3 API — lets Claude and other AI assistants read messages, send to groups, and manage direct chats natively.",
+    latestCommits: [
+      { hash: "7830371", subject: "Initial commit: GroupMe MCP server", author: "arnavgokhale", date: "2026-04-15T12:53:59-05:00" },
+    ],
+    activeBranches: [{ name: "main", isCurrent: true }],
+    unfinishedFeatures: [],
+    deployment: {
+      status: "unknown",
+      url: null,
+      provider: "unknown",
+      note: "Installed locally as a Claude MCP server — no public deployment.",
+    },
+    screenshots: [],
+    stack: ["Python", "MCP"],
+    caseStudyStatus: "missing",
+    proves: [
+      "Can extend AI assistants with custom MCP tool servers.",
+      "Can wrap third-party REST APIs into AI-native interfaces.",
+      "Shows ownership of groupme-mcp from code to narrative.",
+    ],
+    health: "needs-case-study",
+    updatedAt: "2026-04-15T12:53:59-05:00",
+    category: "Tools",
+    githubUrl: "https://github.com/arnavgokhale12/groupme-mcp",
+  },
+  {
+    name: "BAYC",
+    path: "/demo/BAYC",
+    relativePath: "BAYC",
+    description:
+      "BAYC-inspired generative NFT gallery with a programmatic Canvas art engine, layered PNG compositor, rarity system, slot-machine mint animation, Web3 wallet connect, and Web Audio synthesizer.",
+    latestCommits: [
+      { hash: "82daead", subject: "Update deployment ignore and lockfile", author: "arnavgokhale", date: "2026-05-10T23:08:29-05:00" },
+      { hash: "9b766b3", subject: "Replace programmatic Canvas engine with PNG layer compositor", author: "arnavgokhale", date: "2026-04-10T13:15:53-05:00" },
+      { hash: "490a3c1", subject: "Add Web3 wallet connect flow", author: "arnavgokhale", date: "2026-04-10T12:40:32-05:00" },
+    ],
+    activeBranches: [{ name: "main", isCurrent: true }],
+    unfinishedFeatures: [],
+    deployment: {
+      status: "unknown",
+      url: null,
+      provider: "unknown",
+      note: "Fully client-side static site — no backend or external services.",
+    },
+    screenshots: [],
+    stack: ["HTML Canvas", "JavaScript", "Web Audio API", "Web3"],
+    caseStudyStatus: "missing",
+    proves: [
+      "Can build generative art systems with programmable trait engines.",
+      "Can implement Web3 wallet connect without a backend.",
+      "Can synthesize audio and build immersive browser experiences.",
+      "Shows ownership of BAYC from code to narrative.",
+    ],
+    health: "needs-case-study",
+    updatedAt: "2026-05-10T23:08:29-05:00",
+    category: "Web",
+    githubUrl: "https://github.com/arnavgokhale12/BAYC",
+  },
+  {
+    name: "supply-chain-dashboard",
+    path: "/demo/supply-chain-dashboard",
+    relativePath: "supply-chain-dashboard",
+    description:
+      "Real-time supply chain stress monitoring with a composite index from FRED, GSCPI, Baltic Dry, and Cass Freight data, plus equity market overlays for sector performance under stress regimes.",
+    latestCommits: [
+      { hash: "dd26888", subject: "Fix render.yaml: remove unsupported pythonVersion field", author: "arnavgokhale", date: "2026-04-09T19:50:50-05:00" },
+      { hash: "84a6c78", subject: "Add deployment configs for Render + Streamlit Community Cloud", author: "arnavgokhale", date: "2026-04-09T17:53:57-05:00" },
+      { hash: "58cbd8b", subject: "Add daily data refresh scheduling", author: "Arnav Gokhale", date: "2026-01-14T17:35:11-06:00" },
+    ],
+    activeBranches: [{ name: "main", isCurrent: true }],
+    unfinishedFeatures: [],
+    deployment: {
+      status: "configured",
+      url: null,
+      provider: "unknown",
+      note: "Deployment configs for Render (FastAPI backend) and Streamlit Community Cloud added.",
+    },
+    screenshots: [],
+    stack: ["Python", "FastAPI", "Streamlit", "SQLAlchemy", "Pandas", "yfinance"],
+    caseStudyStatus: "missing",
+    proves: [
+      "Can ingest and normalize multi-source macroeconomic time-series data.",
+      "Can build composite financial stress indexes from raw API feeds.",
+      "Can deploy fullstack Python apps with persistent databases.",
+      "Shows ownership of supply-chain-dashboard from code to narrative.",
+    ],
+    health: "needs-case-study",
+    updatedAt: "2026-04-09T19:50:50-05:00",
+    category: "Data",
+    githubUrl: "https://github.com/arnavgokhale12/supply-chain-dashboard",
+  },
+  {
+    name: "euro-style-clusters",
+    path: "/demo/euro-style-clusters",
+    relativePath: "euro-style-clusters",
+    description:
+      "Playing style clustering and MoneyBall transfer market efficiency analysis for Europe's top 5 football leagues, using PCA, K-means, and an interactive Streamlit UI.",
+    latestCommits: [
+      { hash: "7bf4a72", subject: "Fix KeyError crash when avg_possession column is absent", author: "arnavgokhale", date: "2026-04-09T19:34:10-05:00" },
+      { hash: "8a737c8", subject: "Prepare for Streamlit Community Cloud deployment", author: "arnavgokhale", date: "2026-04-09T17:49:54-05:00" },
+      { hash: "fa2b81d", subject: "Add screenshots to README", author: "arnavgokhale", date: "2026-01-13T11:16:20-06:00" },
+    ],
+    activeBranches: [{ name: "main", isCurrent: true }],
+    unfinishedFeatures: [],
+    deployment: {
+      status: "configured",
+      url: null,
+      provider: "unknown",
+      note: "Prepared for Streamlit Community Cloud — no confirmed live URL.",
+    },
+    screenshots: [],
+    stack: ["Python", "Streamlit", "Pandas", "scikit-learn", "Matplotlib"],
+    caseStudyStatus: "missing",
+    proves: [
+      "Can apply unsupervised ML to domain-specific sports analytics data.",
+      "Can visualize multidimensional clustering results accessibly.",
+      "Can tell a MoneyBall-style story through quantitative analysis.",
+      "Shows ownership of euro-style-clusters from code to narrative.",
+    ],
+    health: "needs-case-study",
+    updatedAt: "2026-04-09T19:34:10-05:00",
+    category: "Data",
+    githubUrl: "https://github.com/arnavgokhale12/euro-style-clusters",
+  },
+  {
+    name: "self-rpg",
+    path: "/demo/self-rpg",
+    relativePath: "self-rpg",
+    description:
+      "Gamified habit tracker that turns to-do items into RPG quests — earn XP, level up character stats, and track real-life progress through a browser-based dashboard.",
+    latestCommits: [
+      { hash: "7caf73e", subject: "Ignore Vercel project files", author: "arnavgokhale", date: "2026-05-10T23:08:41-05:00" },
+      { hash: "b2102b0", subject: "Build life stats RPG dashboard — full web app", author: "arnavgokhale", date: "2026-04-09T17:50:17-05:00" },
+      { hash: "14f5761", subject: "add gitignore", author: "arnavgokhale", date: "2026-04-09T17:37:59-05:00" },
+    ],
+    activeBranches: [{ name: "main", isCurrent: true }],
+    unfinishedFeatures: [],
+    deployment: {
+      status: "unknown",
+      url: null,
+      provider: "unknown",
+      note: "Fully client-side static site — open index.html in any browser.",
+    },
+    screenshots: [],
+    stack: ["HTML", "CSS", "JavaScript"],
+    caseStudyStatus: "missing",
+    proves: [
+      "Can gamify abstract productivity concepts into interactive UX.",
+      "Can build fully featured browser apps without a framework.",
+      "Shows ownership of self-rpg from code to narrative.",
+    ],
+    health: "needs-case-study",
+    updatedAt: "2026-05-10T23:08:41-05:00",
+    category: "Web",
+    githubUrl: "https://github.com/arnavgokhale12/self-rpg",
+  },
+  {
+    name: "x-autoposter",
+    path: "/demo/x-autoposter",
+    relativePath: "x-autoposter",
+    description:
+      "Playwright-driven X (Twitter) autoposter with browser session persistence, interval scheduling, and zero dependency on the official API.",
+    latestCommits: [
+      { hash: "eb6bb60", subject: "Initial commit: X/Twitter autoposter bot", author: "arnavgokhale", date: "2026-04-12T16:32:46-05:00" },
+    ],
+    activeBranches: [{ name: "main", isCurrent: true }],
+    unfinishedFeatures: [],
+    deployment: {
+      status: "unknown",
+      url: null,
+      provider: "unknown",
+      note: "Runs locally — no server deployment.",
+    },
+    screenshots: [],
+    stack: ["Python", "Playwright"],
+    caseStudyStatus: "missing",
+    proves: [
+      "Can automate browser-based tasks without official API access.",
+      "Can build modular Python CLI tools with session management.",
+      "Shows ownership of x-autoposter from code to narrative.",
+    ],
+    health: "needs-case-study",
+    updatedAt: "2026-04-12T16:32:46-05:00",
+    category: "Automation",
+    githubUrl: "https://github.com/arnavgokhale12/x-autoposter",
   },
 ];
 
@@ -256,7 +556,7 @@ async function readProjectSignal(
     return null;
   }
 
-  const [commits, branches, description, stack, unfinished, screenshots] =
+  const [commits, branches, description, stack, unfinished, screenshots, githubUrl] =
     await Promise.all([
       hasGit ? readLatestCommits(projectPath) : Promise.resolve([]),
       hasGit ? readBranches(projectPath) : Promise.resolve([]),
@@ -264,6 +564,7 @@ async function readProjectSignal(
       detectStack(projectPath),
       findUnfinishedFeatures(projectPath),
       findScreenshots(projectPath),
+      hasGit ? inferGithubUrl(projectPath) : Promise.resolve(null),
     ]);
 
   const deployment = await detectDeployment(name, projectPath, portfolioDeployments);
@@ -286,6 +587,8 @@ async function readProjectSignal(
     proves,
     health: getHealth({ hasGit, commits, caseStudyStatus, unfinished }),
     updatedAt,
+    category: inferCategory(stack),
+    githubUrl,
   };
 }
 
@@ -300,6 +603,25 @@ async function git(projectPath: string, args: string[]) {
   } catch {
     return "";
   }
+}
+
+async function inferGithubUrl(projectPath: string): Promise<string | null> {
+  const remote = await git(projectPath, ["remote", "get-url", "origin"]);
+  if (!remote || !remote.includes("github.com")) return null;
+  const normalized = remote.startsWith("git@")
+    ? remote.replace(/^git@github\.com:/, "https://github.com/")
+    : remote;
+  return normalized.replace(/\.git$/, "").trim();
+}
+
+function inferCategory(stack: string[]): ProjectSignal["category"] {
+  const s = stack.map((t) => t.toLowerCase());
+  if (s.some((t) => ["vercel ai sdk", "ai sdk", "@ai-sdk", "openai", "anthropic", "langchain"].some((kw) => t.includes(kw)))) return "AI";
+  if (s.some((t) => ["react native", "expo", "ios", "android"].some((kw) => t.includes(kw)))) return "Mobile";
+  if (s.some((t) => ["streamlit", "pandas", "numpy", "scikit-learn", "matplotlib", "plotly"].some((kw) => t.includes(kw)))) return "Data";
+  if (s.some((t) => ["playwright", "github actions", "automation", "cron", "bot", "scheduler"].some((kw) => t.includes(kw)))) return "Automation";
+  if (s.some((t) => ["mcp", "model context protocol"].some((kw) => t.includes(kw)))) return "Tools";
+  return "Web";
 }
 
 async function readLatestCommits(projectPath: string): Promise<CommitSignal[]> {
